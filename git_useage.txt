@@ -10,6 +10,8 @@ git:
 7.版本回退:git reset --hard <HEAD^/HEAD^^/HEAD~n/commit_id> #依次是退回到上一个/上上一个／前第n个/commit_id指向的版本
 8.查看所有使用过的git命令记录:git reflog #此命令用来查找之前的commit_id来回退版本
 9.查看工作区和版本库里某个文件的不同:git diff HEAD -- file_name #有修改的地方会以红色标明上一次提交的结果，以绿色表明当前工作区的修改
+
 10.撤销工作区的修改以回到最后一次commit或者add的状态:git checkout -- file_name  #返回状态取决于之前的操作，如果自从修改后只add没有commit，则会回到add的状态，如果没有add或者add后且commit，则会回到上一次commit的状态
-11.撤销暂存区的修改将其放回到工作区:git reset HEAD file_name
+
+11.撤销暂存区的修改将其放回到工作区:git reset HEAD file_name,   #注意：在此处撤回后，如果使用git checkout -- file_name则会退回到最后一次commit的版本
 12.撤销分支
