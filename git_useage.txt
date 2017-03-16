@@ -1,0 +1,7 @@
+git:
+1.初始化仓库：git init
+2.添加文件到仓库:git add file1[, file2,...]  #如果要提交全部，则file改为.
+3.提交文件到仓库:git commit [-m '本次提交说明，精准简短']  #commit类似于快照功能
+4.查看当前仓库状态:git status 该命令查询哪些文件被修改过但还没准备提交
+5.查看修改信息:git diff
+6.查看提交历史记录:git log [--pretty=oneline]
