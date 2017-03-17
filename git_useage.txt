@@ -6,7 +6,7 @@ git:
 3.提交暂存区文件到当前分支:git commit [-m '本次提交说明，精准简短']  #commit类似于快照功能
 4.查看当前仓库状态:git status 该命令查询哪些文件被修改过但还没准备提交
 5.查看修改信息:git diff
-6.查看提交历史记录:git log [--pretty=oneline]
+6.查看提交历史记录:git log [--graph][--pretty=oneline][--abbrev-commit]
 7.版本回退:git reset --hard <HEAD^/HEAD^^/HEAD~n/commit_id> #依次是退回到上一个/上上一个／前第n个/commit_id指向的版本
 8.查看所有使用过的git命令记录:git reflog #此命令用来查找之前的commit_id来回退版本
 9.查看工作区和版本库里某个文件的不同:git diff HEAD -- file_name #有修改的地方会以红色标明上一次提交的结果，以绿色表明当前工作区的修改
@@ -23,10 +23,10 @@ dev上完成后，就可以合并分支到master，然后再删除dev指针（�
 15.切换到新分支:git checkout branch_name
 16.创建并切换分支:git checkout -b branch_name
 17.查看分支:git branch
-18.合并分支:<!!必须先切换到master分支> git merge branch_name    #合并后master指向branch_name，这成为快速合并
+18.合并分支:<!!必须先在分支上添加并提交，再切换到master分支进行合并操作> git merge branch_name    #合并后master指向branch_name，这成为快速合并
 19.删除分支:git branch -d branch_name
-
-当在分支上修改后，切换回master上也修改了，这时分支和master都有了新的提交，这时再执行合并就会有冲突,这时Git无法执行快速合并，只能试图把各自的修改合并起来
+20.分支冲突解决办法：
+当在分支上修改并提交后，切换回master上也修改了相同的地方并提交后，此时分支和master都有了新的提交，这时再执行合并就会有冲突,这时Git无法执行快速合并，只能试图把各自的修改合并起来，然后需要使用git status或者git diff查看不同并在master上确定冲突的地方怎么解决然后重新提交，此时分支和master都会指向最新的提交点
 
 github：
 现在本地有了一个Git仓库，可以在github上创建一个Git仓库，并让这两个仓库进行远程同步，这样github上的仓库既可已作为备份，也可以让别人通过该仓库协作，
