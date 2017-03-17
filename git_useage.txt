@@ -23,8 +23,9 @@ dev上完成后，就可以合并分支到master，然后再删除dev指针（�
 15.切换到新分支:git checkout branch_name
 16.创建并切换分支:git checkout -b branch_name
 17.查看分支:git branch
-18.合并分支:<!!必须先切换到master分支> git merge branch_name
+18.合并分支:<!!必须先切换到master分支> git merge branch_name    #合并后master指向branch_name
 19.删除分支:git branch -d branch_name
+20.解决冲突:当在分支上修改后，切换回master上也修改了，这时分支和master都有了新的提交，这时再执行合并就会有冲突
 
 github：
 现在本地有了一个Git仓库，可以在github上创建一个Git仓库，并让这两个仓库进行远程同步，这样github上的仓库既可已作为备份，也可以让别人通过该仓库协作，
