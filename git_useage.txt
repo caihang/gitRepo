@@ -36,3 +36,5 @@ github：
 
 15.推送本地仓库内容到远程仓库:git push [-u] orgin master     # [-u] 只是第一次推送时使用，这样Git会把本地和远程的master分支也关联起来!!!
 16.从远程仓库克隆:git clone git@github.com:user_name/repository_name.git  #推荐使用git://因为使用ssh协议且原生速度更快
+
+test conflict:this is ch's git
