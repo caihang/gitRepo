@@ -2,7 +2,7 @@ git:
 工作区 -> 暂存区stage -> master分支（初始化时HEAD默认指向master分支) #暂存区和分支统称为版本库
 
 1.初始化仓库：git init
-2.添加文件到暂存区:git add file1[, file2,...]  #如果要提交全部，则file改为.
+2.添加文件到暂存区:git add file1[, file2,...]  #如果要添加全部，则file改为 .或者-A
 3.提交暂存区文件到当前分支:git commit [-m '本次提交说明，精准简短']  #commit类似于快照功能
 4.查看当前仓库状态:git status 该命令查询哪些文件被修改过但还没准备提交
 5.查看修改信息:git diff
@@ -14,3 +14,23 @@ git:
 11.撤销暂存区的修改将其放回到工作区:git reset HEAD file_name, 然后就可以使用git checkout -- file_name， 注意：在这里执行这一步时会退回到最后一次commit的版本
 12.撤销提交到分支的文件:使用版本回退，前提是未推送到远程
 13.从版本库删除文件:git rm file_name  #如果一个文件被commit到版本库，在工作区误删都可以恢复，但只能恢复到最新版本，会丢失最近一次提交后修改的内容
+
+分支管理：
+在没创建分支之前，由master指针指向每次的commit然后组成一条时间线以此可以确定master的提交点，然后HEAD指针指向master表示当前在master分支
+当创建了一个分支dev，即增加了一个dev指针指向当前的提交点，然后HEAD指向dev表示在dev分支上，此后在dev上的提交都是dev指针移动而master不动，当
+dev上完成后，就可以合并分支到master，然后再删除dev指针（即删除dev分支）
+14.创建新分支:git branch branch_name
+15.切换到新分支:git checkout branch_name
+16.创建并切换分支:git checkout -b branch_name
+17.查看分支:git branch
+18.合并分支:<!!必须先切换到master分支> git merge branch_name
+19.删除分支:git branch -d branch_name
+
+github：
+现在本地有了一个Git仓库，可以在github上创建一个Git仓库，并让这两个仓库进行远程同步，这样github上的仓库既可已作为备份，也可以让别人通过该仓库协作，
+一般是先创建远程库，再通过克隆到本地，进行多人协作开发
+
+14.本地仓库与github仓库关联：git remote add origin git@github.com:yourname/yourrepository.git     #添加后远程仓库的名字在本地就被视为origin，这是Git默认的叫法，也可以改为其他，但是推荐使用origin因为一看就知道是远程仓库
+
+15.推送本地仓库内容到远程仓库:git push [-u] orgin master     # [-u] 只是第一次推送时使用，这样Git会把本地和远程的master分支也关联起来!!!
+16.从远程仓库克隆:git clone git@github.com:user_name/repository_name.git  #推荐使用git://因为使用ssh协议且原生速度更快
